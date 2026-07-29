@@ -1,0 +1,2511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VERSE31 | Digital Library Ecosystem</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+
+:root{
+
+--bg:#081120;
+
+--cyan:#06D6FF;
+
+--blue:#3B82F6;
+
+--purple:#8B5CF6;
+
+--gold:#FACC15;
+
+--text:#CBD5E1;
+
+--glass:rgba(255,255,255,.08);
+
+--border:rgba(255,255,255,.15);
+
+}
+
+
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+
+
+body{
+
+font-family:'Inter',sans-serif;
+
+background:
+
+radial-gradient(circle at top right,#1e3a8a,transparent 30%),
+
+radial-gradient(circle at bottom left,#4c1d95,transparent 30%),
+
+var(--bg);
+
+
+color:white;
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+
+}
+
+
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+
+background-image:
+
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+
+background-size:50px 50px;
+
+z-index:-1;
+
+}
+
+
+
+nav{
+
+width:90%;
+
+max-width:1200px;
+
+margin:25px auto;
+
+padding:18px 25px;
+
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+
+background:var(--glass);
+
+backdrop-filter:blur(15px);
+
+
+border:1px solid var(--border);
+
+border-radius:25px;
+
+
+}
+
+
+
+.logo{
+
+font-family:'Poppins';
+
+font-size:30px;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+}
+
+
+
+.logo span{
+
+color:var(--cyan);
+
+}
+
+
+
+.nav-btn{
+
+
+padding:12px 25px;
+
+border-radius:30px;
+
+border:1px solid var(--border);
+
+
+background:transparent;
+
+color:white;
+
+cursor:pointer;
+
+
+}
+
+
+
+
+/* HERO */
+
+
+.hero{
+
+
+min-height:80vh;
+
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+
+text-align:center;
+
+
+padding:40px 20px;
+
+
+}
+
+
+
+.hero h1{
+
+
+font-family:'Poppins';
+
+font-size:clamp(60px,10vw,120px);
+
+letter-spacing:10px;
+
+
+background:
+
+linear-gradient(
+90deg,
+white,
+var(--cyan),
+var(--purple)
+);
+
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+
+}
+
+
+
+.hero h2{
+
+
+margin-top:20px;
+
+font-size:26px;
+
+color:var(--text);
+
+
+}
+
+
+
+.hero p{
+
+
+margin-top:20px;
+
+font-size:18px;
+
+color:#94a3b8;
+
+
+}
+
+.orbit{
+
+position:absolute;
+
+pointer-events:none;
+
+width:450px;
+
+height:450px;
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:50%;
+
+animation:rotate 20s linear infinite;
+
+}
+
+position:absolute;
+pointer-events:none;
+width:450px;
+
+height:450px;
+
+
+border:
+
+1px solid rgba(255,255,255,.15);
+
+
+border-radius:50%;
+
+
+animation:rotate 20s linear infinite;
+
+
+}
+
+
+
+@keyframes rotate{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+.enter-btn{
+
+
+margin-top:40px;
+
+
+padding:18px 45px;
+
+
+border:none;
+
+
+border-radius:50px;
+
+
+font-size:18px;
+
+
+font-weight:bold;
+
+
+color:white;
+
+
+background:
+
+linear-gradient(
+135deg,
+var(--blue),
+var(--purple)
+);
+
+
+cursor:pointer;
+
+
+box-shadow:
+
+0 0 30px rgba(59,130,246,.5);
+
+
+}
+.enter-btn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 50px rgba(6,214,255,.9),
+0 0 80px rgba(139,92,246,.6);
+
+}
+
+
+.enter-btn{
+
+transition:.3s ease;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<nav>
+
+
+<div class="logo">
+
+VERSE<span>31</span>
+
+</div>
+
+
+
+<button class="nav-btn" onclick="openAdmin()">
+Admin
+</button>
+
+
+
+</nav>
+
+
+
+
+<section class="hero">
+
+
+<div class="orbit"></div>
+
+
+<h1>
+
+VERSE31
+
+</h1>
+
+
+
+<h2>
+
+Digital Library Ecosystem of SK Blok 31
+
+</h2>
+
+
+
+<p>
+
+Explore the Universe of Knowledge
+
+</p>
+
+<audio id="verseSound">
+<source src="https://www.myinstants.com/media/sounds/button-click.mp3" type="audio/mpeg">
+</audio>
+<button 
+class="enter-btn" 
+onmouseenter="hoverSound()"
+onclick="enterVerse()">
+
+ENTER THE VERSE 🚀
+
+</button>
+
+
+
+</section>
+<!-- ==========================
+VERSE31 COMMAND CENTER
+========================== -->
+
+
+<section class="command-center">
+
+
+<h2 class="section-title">
+
+VERSE31 COMMAND CENTER
+
+</h2>
+
+
+<p class="section-subtitle">
+
+Your gateway to the universe of knowledge
+
+</p>
+
+
+
+
+<div class="dashboard">
+
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+📚
+</div>
+
+<h3>
+342
+</h3>
+
+<p>
+Students
+</p>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+📖
+</div>
+
+<h3>
+5820
+</h3>
+
+<p>
+Books Recorded
+</p>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+🎁
+</div>
+
+<h3>
+120
+</h3>
+
+<p>
+NiTRO Claims
+</p>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+🏆
+</div>
+
+<h3>
+36
+</h3>
+
+<p>
+Top Readers
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<h2 class="section-title universe-heading">
+
+🚀 EXPLORE THE VERSE31 UNIVERSE
+
+</h2>
+
+
+
+
+
+<div class="universe-grid">
+
+
+
+<a href="libraryverse_v5.html" class="universe-card">
+
+
+<div class="universe-icon">
+
+📚
+
+</div>
+
+
+<h3>
+
+LibraryVerse
+
+</h3>
+
+
+<p>
+
+Digital Reading Universe
+
+</p>
+
+
+<span>
+
+Explore Books →
+
+</span>
+
+
+</a>
+
+
+
+
+
+<a href="ainsverse_v4.html" class="universe-card">
+
+
+<div class="universe-icon">
+
+🤖
+
+</div>
+
+
+<h3>
+
+AINSVerse
+
+</h3>
+
+
+<p>
+
+NILAM Achievement Hub
+
+</p>
+
+
+<span>
+
+View Achievement →
+
+</span>
+
+
+</a>
+
+
+
+
+
+<a href="nitroverse_v3.html" class="universe-card">
+
+
+<div class="universe-icon">
+
+🎁
+
+</div>
+
+
+<h3>
+
+NiTROVerse
+
+</h3>
+
+
+<p>
+
+Reading Rewards Universe
+
+</p>
+
+
+<span>
+
+Explore Rewards →
+
+</span>
+
+
+</a>
+
+
+
+
+
+<a href="peopleverse_v4.html" class="universe-card">
+
+
+<div class="universe-icon">
+
+👥
+
+</div>
+
+
+<h3>
+
+PeopleVerse
+
+</h3>
+
+
+<p>
+
+The People Behind VERSE31
+
+</p>
+
+
+<span>
+
+Meet The Team →
+
+</span>
+
+
+</a>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<style>
+
+
+.command-center{
+
+
+padding:80px 8%;
+
+
+}
+
+
+
+
+.section-title{
+
+
+text-align:center;
+
+
+font-family:'Poppins';
+
+
+font-size:42px;
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+.section-subtitle{
+
+
+text-align:center;
+
+
+color:#94a3b8;
+
+
+margin-bottom:50px;
+
+
+}
+
+
+
+
+.dashboard{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(4,1fr);
+
+
+gap:25px;
+
+
+}
+
+
+
+.stat-card{
+
+
+background:var(--glass);
+
+
+border:1px solid var(--border);
+
+
+border-radius:30px;
+
+
+padding:35px;
+
+
+text-align:center;
+
+
+backdrop-filter:blur(15px);
+
+
+transition:.4s;
+
+
+}
+
+
+
+.stat-card:hover{
+
+
+transform:translateY(-10px);
+
+
+box-shadow:
+
+0 0 35px rgba(6,214,255,.3);
+
+
+}
+
+
+
+
+.stat-icon{
+
+
+font-size:50px;
+
+
+}
+
+
+
+.stat-card h3{
+
+
+font-family:'Poppins';
+
+
+font-size:45px;
+
+
+margin:15px 0;
+
+
+}
+
+
+
+.stat-card p{
+
+
+color:#CBD5E1;
+
+
+}
+
+
+
+.universe-heading{
+
+
+margin-top:100px;
+
+
+}
+
+
+
+.universe-grid{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(4,1fr);
+
+
+gap:25px;
+
+
+}
+
+
+
+.universe-card{
+
+
+text-decoration:none;
+
+
+color:white;
+
+
+background:var(--glass);
+
+
+border:1px solid var(--border);
+
+
+border-radius:35px;
+
+
+padding:40px 25px;
+
+
+text-align:center;
+
+
+backdrop-filter:blur(15px);
+
+
+transition:.4s;
+
+
+}
+
+
+
+.universe-card:hover{
+
+
+transform:translateY(-15px);
+
+
+box-shadow:
+
+0 0 40px rgba(6,214,255,.3);
+
+
+}
+
+
+
+.universe-icon{
+
+
+font-size:70px;
+
+
+}
+
+
+
+.universe-card h3{
+
+
+font-family:'Poppins';
+
+
+font-size:28px;
+
+
+margin:20px 0;
+
+
+}
+
+
+
+.universe-card p{
+
+
+color:#CBD5E1;
+
+
+}
+
+
+
+.universe-card span{
+
+
+display:inline-block;
+
+
+margin-top:20px;
+
+
+color:var(--cyan);
+
+
+}
+
+
+
+
+@media(max-width:900px){
+
+
+.dashboard,
+.universe-grid{
+
+
+grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.dashboard,
+.universe-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+}
+
+
+
+</style>
+<!-- ==========================
+VERSE31 SPOTLIGHT
++ ACTIVITIES
++ QUICK ACCESS
+========================== -->
+
+
+<section class="spotlight-section">
+
+
+<h2 class="section-title">
+
+✨ TODAY'S SPOTLIGHT
+
+</h2>
+
+
+<p class="section-subtitle">
+
+Celebrating readers and achievements of SK Blok 31
+
+</p>
+
+
+
+
+<div class="spotlight-card">
+
+
+<div class="spotlight-image">
+
+🏆
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+AINS Monthly Top Reader
+
+</h3>
+
+
+<h2>
+
+Nur Aulya Hidayah
+
+</h2>
+
+
+<p>
+
+Reading Champion
+
+</p>
+
+
+<div class="badge">
+
+⭐ July 2026 Achievement
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="activity-section">
+
+
+<h2 class="section-title">
+
+📢 LATEST ACTIVITIES
+
+</h2>
+
+
+
+
+<div class="activity-grid">
+
+
+
+<div class="activity-card">
+
+📚
+
+<h3>
+
+NILAM NiTRO
+
+</h3>
+
+<p>
+
+Reading achievement and reward redemption programme.
+
+</p>
+
+</div>
+
+
+
+
+<div class="activity-card">
+
+🇲🇾
+
+<h3>
+
+Karnival Digital Bulan Kebangsaan 2026
+
+</h3>
+
+<p>
+
+Digital patriotic activities organised by Pusat Sumber.
+
+</p>
+
+</div>
+
+
+
+
+<div class="activity-card">
+
+💻
+
+<h3>
+
+Digital Learning
+
+</h3>
+
+<p>
+
+Technology-based learning activities and resources.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="quick-section">
+
+
+<h2 class="section-title">
+
+🔗 QUICK ACCESS HUB
+
+</h2>
+
+
+
+<p class="section-subtitle">
+
+Important links for VERSE31 community
+
+</p>
+
+
+
+
+<div class="quick-grid">
+
+
+
+<a href="#" class="quick-card">
+
+
+<div>
+
+📚
+
+</div>
+
+
+<h3>
+
+Rak Maya VERSE31
+
+</h3>
+
+
+<p>
+
+Digital Reading Collection
+
+</p>
+
+
+<span>
+
+Coming Soon
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+<a href="https://ains.moe.gov.my/login?returnUrl=/" target="_blank" class="quick-card">
+
+
+<div>
+
+🤖
+
+</div>
+
+
+<h3>
+
+AINS NILAM
+
+</h3>
+
+
+<p>
+
+Official NILAM Recording System
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+<a href="https://www.myprepus.com/login.php" target="_blank" class="quick-card">
+
+
+<div>
+
+🧭
+
+</div>
+
+
+<h3>
+
+MyPrepUs
+
+</h3>
+
+
+<p>
+
+School Resource Platform
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+<a href="https://delima.moe-dl.edu.my/" target="_blank" class="quick-card">
+
+
+<div>
+
+💻
+
+</div>
+
+
+<h3>
+
+DELIMa 3.0
+
+</h3>
+
+
+<p>
+
+Digital Learning Environment
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+<a href="https://iddelimaskblok31.my.canva.site/website-rasmi-karnival-digital-bulan-kebangsaan-2026-sk-blok-31-tawau" target="_blank" class="quick-card">
+
+
+<div>
+
+🇲🇾
+
+</div>
+
+
+<h3>
+
+Karnival Digital
+
+</h3>
+
+
+<p>
+
+Bulan Kebangsaan 2026
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<style>
+
+
+.spotlight-section,
+.activity-section,
+.quick-section{
+
+
+padding:80px 8%;
+
+
+}
+
+
+
+
+.spotlight-card{
+
+
+max-width:850px;
+
+margin:auto;
+
+
+display:flex;
+
+align-items:center;
+
+gap:40px;
+
+
+padding:40px;
+
+
+background:var(--glass);
+
+
+border:1px solid var(--border);
+
+
+border-radius:35px;
+
+
+backdrop-filter:blur(15px);
+
+
+}
+
+
+
+
+.spotlight-image{
+
+
+width:170px;
+
+height:170px;
+
+
+border-radius:50%;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+font-size:70px;
+
+
+background:
+
+linear-gradient(
+135deg,
+var(--blue),
+var(--purple)
+);
+
+
+}
+
+
+
+.spotlight-card h2{
+
+
+font-family:'Poppins';
+
+font-size:35px;
+
+
+margin:15px 0;
+
+
+}
+
+
+
+.badge{
+
+
+margin-top:20px;
+
+display:inline-block;
+
+
+padding:10px 20px;
+
+
+border-radius:30px;
+
+
+background:var(--gold);
+
+
+color:#081120;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+.activity-grid{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(3,1fr);
+
+
+gap:25px;
+
+
+}
+
+
+
+
+.activity-card,
+.quick-card{
+
+
+padding:35px;
+
+
+background:var(--glass);
+
+
+border:1px solid var(--border);
+
+
+border-radius:30px;
+
+
+backdrop-filter:blur(15px);
+
+
+transition:.4s;
+
+
+}
+
+
+
+.activity-card:hover,
+.quick-card:hover{
+
+
+transform:translateY(-10px);
+
+
+box-shadow:
+
+0 0 35px rgba(6,214,255,.3);
+
+
+}
+
+
+
+.activity-card h3,
+.quick-card h3{
+
+
+font-family:'Poppins';
+
+
+margin:15px 0;
+
+
+}
+
+
+
+.activity-card p,
+.quick-card p{
+
+
+color:#CBD5E1;
+
+
+}
+
+
+
+
+
+.quick-grid{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(5,1fr);
+
+
+gap:20px;
+
+
+}
+
+
+
+
+.quick-card{
+
+
+text-decoration:none;
+
+
+color:white;
+
+
+text-align:center;
+
+
+}
+
+
+
+.quick-card div{
+
+
+font-size:55px;
+
+
+}
+
+
+
+.quick-card span{
+
+
+display:inline-block;
+
+
+margin-top:15px;
+
+
+color:var(--cyan);
+
+
+}
+
+
+
+@media(max-width:900px){
+
+
+.spotlight-card{
+
+
+flex-direction:column;
+
+text-align:center;
+
+
+}
+
+
+
+.activity-grid,
+.quick-grid{
+
+
+grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+}
+
+
+
+
+@media(max-width:600px){
+
+
+.activity-grid,
+.quick-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+}
+
+
+</style>
+<!-- ==========================
+VERSE31 FOOTER
+========================== -->
+
+<!-- ==========================
+VERSE31 PSS OPERATIONS CENTER
+========================== -->
+
+
+<section class="pss-operation-section">
+
+
+<h2 class="section-title">
+
+🏫 PSS OPERATIONS CENTER
+
+</h2>
+
+
+<p class="section-subtitle">
+
+Digital services and daily operations of Pusat Sumber Sekolah
+
+</p>
+
+
+
+
+<div class="pss-grid">
+
+
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeXlbiJTsQWg2Y9XEmHLzExKaIhyfK9mrjmvEut-fgZylVNFQ/viewform?pli=1" 
+target="_blank"
+class="pss-card">
+
+
+<div class="pss-icon">
+
+🏫
+
+</div>
+
+
+<h3>
+
+Tempahan Ruang PSS
+
+</h3>
+
+
+<p>
+
+Tempahan Ruang Tayangan
+<br>
+atau
+<br>
+Ruang NILAM
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSf0qGAyZTYDr981Ze9Rj93E-zJcv7LljQtQ9vij9beUFFq7kw/viewform"
+target="_blank"
+class="pss-card">
+
+
+<div class="pss-icon">
+
+💻
+
+</div>
+
+
+<h3>
+
+Peminjaman Laptop
+
+</h3>
+
+
+<p>
+
+Tempahan penggunaan laptop
+murid dan guru
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+
+
+<a href="https://drive.google.com/drive/folders/1XROyOv5baRRcKh5Pb1dhwkHFtN0lolQr?usp=sharing"
+target="_blank"
+class="pss-card">
+
+
+<div class="pss-icon">
+
+📅
+
+</div>
+
+
+<h3>
+
+Jadual PdP Digital
+
+</h3>
+
+
+<p>
+
+Weekly updated digital learning schedule
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+
+
+<a href="https://drive.google.com/file/d/1pDYAQm_4giCZ6n5Kfk0xTo-oHS6Xwz2O/view?usp=sharing"
+target="_blank"
+class="pss-card">
+
+
+<div class="pss-icon">
+
+⭐
+
+</div>
+
+
+<h3>
+
+Jadual Pengawas PSS
+
+</h3>
+
+
+<p>
+
+PSS Student Duty Schedule
+
+</p>
+
+
+<span>
+
+Open →
+
+</span>
+
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<style>
+
+
+.pss-operation-section{
+
+
+padding:80px 8%;
+
+
+}
+
+
+
+
+.pss-grid{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(4,1fr);
+
+
+gap:25px;
+
+
+}
+
+
+
+
+.pss-card{
+
+
+padding:35px 25px;
+
+
+text-align:center;
+
+
+text-decoration:none;
+
+
+color:white;
+
+
+background:var(--glass);
+
+
+border:1px solid var(--border);
+
+
+border-radius:35px;
+
+
+backdrop-filter:blur(15px);
+
+
+transition:.4s;
+
+
+}
+
+
+
+.pss-card:hover{
+
+
+transform:translateY(-12px);
+
+
+box-shadow:
+
+0 0 40px rgba(6,214,255,.3);
+
+
+}
+
+
+
+.pss-icon{
+
+
+font-size:60px;
+
+
+}
+
+
+
+.pss-card h3{
+
+
+font-family:'Poppins';
+
+
+font-size:22px;
+
+
+margin:20px 0;
+
+
+}
+
+
+
+.pss-card p{
+
+
+color:#CBD5E1;
+
+
+line-height:1.6;
+
+
+}
+
+
+
+.pss-card span{
+
+
+display:inline-block;
+
+
+margin-top:20px;
+
+
+color:var(--cyan);
+
+
+font-weight:bold;
+
+
+}
+
+
+
+@media(max-width:900px){
+
+
+.pss-grid{
+
+
+grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.pss-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+}
+
+
+
+</style>
+<footer>
+
+
+<div class="footer-logo">
+
+VERSE<span>31</span>
+
+</div>
+
+
+
+<h3>
+
+Digital Library Ecosystem
+
+</h3>
+
+
+
+<p>
+
+Pusat Sumber Sekolah
+
+<br>
+
+SK Blok 31 Tawau
+
+</p>
+
+
+
+<div class="footer-tag">
+
+Explore • Read • Achieve • Inspire
+
+</div>
+
+
+
+<p class="copyright">
+
+© 2026 SK Blok 31 Tawau. All Rights Reserved.
+
+</p>
+
+
+</footer>
+
+
+
+
+
+<style>
+
+
+footer{
+
+
+margin-top:80px;
+
+
+padding:60px 20px;
+
+
+text-align:center;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+border-top:
+
+1px solid rgba(255,255,255,.15);
+
+
+}
+
+
+
+.footer-logo{
+
+
+font-family:'Poppins';
+
+
+font-size:55px;
+
+
+font-weight:800;
+
+
+letter-spacing:3px;
+
+
+}
+
+
+
+.footer-logo span{
+
+
+color:var(--cyan);
+
+
+}
+
+
+
+footer h3{
+
+
+margin:15px 0;
+
+
+font-family:'Poppins';
+
+
+font-size:24px;
+
+
+}
+
+
+
+footer p{
+
+
+color:#CBD5E1;
+
+
+line-height:1.8;
+
+
+}
+
+
+
+.footer-tag{
+
+
+display:inline-block;
+
+
+margin-top:25px;
+
+
+padding:12px 25px;
+
+
+border-radius:30px;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+color:var(--gold);
+
+
+font-weight:bold;
+
+
+}
+
+
+
+.copyright{
+
+
+margin-top:30px;
+
+
+font-size:14px;
+
+
+color:#64748b;
+
+
+}
+
+
+</style>
+
+
+
+
+
+<script>
+function hoverSound(){
+
+let audio = new AudioContext();
+
+let osc = audio.createOscillator();
+
+let gain = audio.createGain();
+
+
+osc.type="sine";
+
+osc.frequency.value=900;
+
+
+gain.gain.value=0.05;
+
+
+osc.connect(gain);
+
+gain.connect(audio.destination);
+
+
+osc.start();
+
+osc.stop(audio.currentTime + 0.08);
+
+}
+function enterVerse(){
+
+// SOUND EFFECT
+let audio = new AudioContext();
+
+let oscillator = audio.createOscillator();
+let gain = audio.createGain();
+
+oscillator.connect(gain);
+gain.connect(audio.destination);
+
+oscillator.frequency.value = 700;
+oscillator.type = "sine";
+
+gain.gain.value = 0.15;
+
+oscillator.start();
+
+oscillator.stop(audio.currentTime + 0.12);
+
+
+// SCROLL DOWN
+document.querySelector(".command-center").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+console.log("VERSE31 HOMEVERSE v6 READY 🚀");
+
+</script>
+
+<!-- ==========================
+VERSE31 ADMIN MODE
+========================== -->
+
+<script>
+
+function openAdmin(){
+
+let password = prompt("🔐 VERSE31 ADMIN ACCESS\n\nEnter Password:");
+
+if(password === "VERSE31ADMIN"){
+
+alert("✅ Access Granted\nWelcome Admin PSS");
+
+document.getElementById("adminPanel").style.display="block";
+
+window.scrollTo({
+top: document.body.scrollHeight,
+behavior:"smooth"
+});
+
+}
+
+else{
+
+alert("❌ Wrong Password");
+
+}
+
+}
+
+</script>
+
+
+
+<section id="adminPanel" style="display:none; padding:80px 8%;">
+
+<h2 class="section-title">
+
+🔐 VERSE31 ADMIN PANEL
+
+</h2>
+
+
+<p class="section-subtitle">
+
+Management Center for Pusat Sumber SK Blok 31
+
+</p>
+
+
+
+<div class="dashboard">
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+📊
+</div>
+
+<h3>
+Stats
+</h3>
+
+<p>
+Update Dashboard Data
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+🏆
+</div>
+
+<h3>
+Spotlight
+</h3>
+
+<p>
+Update Reader Achievement
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+📢
+</div>
+
+<h3>
+Activities
+</h3>
+
+<p>
+Update Latest Activities
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+🔗
+</div>
+
+<h3>
+Links
+</h3>
+
+<p>
+Manage Quick Access
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+</body>
+
+</html>
