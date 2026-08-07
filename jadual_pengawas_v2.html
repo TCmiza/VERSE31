@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jadual Pengawas PSS</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f6f7ff;
+color:#20284d;
+}
+
+header{
+height:70px;
+background:white;
+border-bottom:1px solid #e2e5f1;
+display:flex;
+align-items:center;
+gap:18px;
+padding:0 6%;
+}
+
+.home{
+text-decoration:none;
+font-size:12px;
+font-weight:bold;
+color:#17245a;
+border:1px solid #dfe3ef;
+padding:9px 12px;
+border-radius:10px;
+}
+
+.brand{
+font-weight:bold;
+color:#17245a;
+}
+
+.live{
+margin-left:auto;
+font-size:9px;
+font-weight:bold;
+color:#25805a;
+background:#eaf8f1;
+padding:7px 10px;
+border-radius:20px;
+}
+
+.hero{
+background:
+radial-gradient(circle at 80% 30%,#765ac850,transparent 28%),
+linear-gradient(135deg,#11183f,#252e6d 65%,#493d8d);
+color:white;
+padding:55px 7%;
+}
+
+.hero-inner{
+max-width:1050px;
+margin:auto;
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:2px;
+font-weight:bold;
+color:#aaa3ed;
+}
+
+.hero h1{
+font-size:43px;
+margin:12px 0;
+}
+
+.hero h1 span{
+color:#bbb4ff;
+}
+
+.hero p{
+max-width:600px;
+color:#d0d3eb;
+font-size:13px;
+line-height:1.6;
+}
+
+.schedule{
+max-width:1050px;
+margin:-25px auto 0;
+padding:0 20px;
+position:relative;
+}
+
+.schedule-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.schedule-card{
+background:white;
+border:1px solid #e1e4f0;
+border-radius:17px;
+padding:18px;
+box-shadow:0 10px 35px #303b7015;
+}
+
+.schedule-icon{
+font-size:27px;
+margin-bottom:10px;
+}
+
+.schedule-card h3{
+margin:0 0 7px;
+font-size:13px;
+color:#17245a;
+}
+
+.schedule-card p{
+font-size:10px;
+line-height:1.5;
+color:#70799b;
+margin:0;
+}
+
+.schedule-card strong{
+color:#6653c3;
+}
+
+.content{
+max-width:1050px;
+margin:auto;
+padding:50px 20px;
+}
+
+.summary{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:25px;
+gap:20px;
+}
+
+.summary h2{
+margin:0 0 6px;
+font-size:27px;
+color:#17245a;
+}
+
+.summary p{
+font-size:11px;
+color:#737b9e;
+margin:0;
+}
+
+.total{
+background:white;
+border:1px solid #dfe3ef;
+border-radius:13px;
+padding:11px 16px;
+text-align:center;
+}
+
+.total strong{
+display:block;
+font-size:22px;
+color:#6653c3;
+}
+
+.total span{
+font-size:8px;
+color:#8188a6;
+}
+
+.groups{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.group{
+background:white;
+border:1px solid #e1e4f0;
+border-radius:20px;
+padding:20px;
+}
+
+.group-head{
+display:flex;
+align-items:center;
+gap:12px;
+border-bottom:1px solid #eceef6;
+padding-bottom:16px;
+margin-bottom:14px;
+}
+
+.group-letter{
+width:46px;
+height:46px;
+border-radius:13px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+font-weight:bold;
+background:#ebeaff;
+color:#6452bf;
+}
+
+.group-head h3{
+margin:0;
+font-size:16px;
+color:#17245a;
+}
+
+.group-head p{
+margin:4px 0 0;
+font-size:9px;
+color:#777f9f;
+}
+
+.member{
+display:flex;
+align-items:center;
+gap:11px;
+padding:11px 4px;
+border-bottom:1px solid #f0f1f7;
+}
+
+.member:last-child{
+border-bottom:0;
+}
+
+.number{
+width:26px;
+height:26px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f0f2fb;
+color:#777f9e;
+font-size:9px;
+font-weight:bold;
+flex:none;
+}
+
+.member-info{
+flex:1;
+}
+
+.member-info strong{
+display:block;
+font-size:11px;
+line-height:1.35;
+color:#17245a;
+}
+
+.member-info span{
+font-size:9px;
+color:#79809c;
+}
+
+.role{
+font-size:8px;
+font-weight:bold;
+color:#6754bf;
+background:#f0edff;
+border-radius:20px;
+padding:5px 7px;
+}
+
+.loading{
+grid-column:1/-1;
+text-align:center;
+padding:50px;
+color:#7a819e;
+}
+
+.refresh-box{
+max-width:1010px;
+margin:0 auto 45px;
+display:flex;
+align-items:center;
+gap:14px;
+background:#ecefff;
+border:1px solid #dce0f1;
+border-radius:16px;
+padding:18px 22px;
+}
+
+.refresh-text{
+flex:1;
+}
+
+.refresh-text h3{
+font-size:12px;
+margin:0 0 4px;
+color:#17245a;
+}
+
+.refresh-text p{
+font-size:10px;
+margin:0;
+color:#747c9c;
+}
+
+.refresh{
+background:white;
+border:1px solid #ccd1e7;
+border-radius:9px;
+padding:9px 12px;
+color:#17245a;
+font-size:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+color:#9ba1ba;
+font-size:9px;
+padding:15px 20px 30px;
+}
+
+@media(max-width:750px){
+
+.schedule-grid{
+grid-template-columns:1fr;
+}
+
+.groups{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding:40px 18px 55px;
+}
+
+.hero h1{
+font-size:35px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<a href="index.html" class="home">
+← HOME
+</a>
+
+<div class="brand">
+⭐ Jadual Pengawas PSS
+</div>
+
+<div class="live">
+● LIVE DATA
+</div>
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div class="eyebrow">
+PUSAT SUMBER · SK BLOK 31 TAWAU
+</div>
+
+<h1>
+Bertugas Bersama.<br>
+<span>Memimpin Bersama.</span>
+</h1>
+
+<p>
+Jadual rasmi Pengawas Pusat Sumber bagi Program SEMAI
+serta urusan peminjaman dan pemulangan buku.
+</p>
+
+</div>
+
+</section>
+
+
+
+<section class="schedule">
+
+<div class="schedule-grid">
+
+
+<div class="schedule-card">
+
+<div class="schedule-icon">
+🌱
+</div>
+
+<h3>
+Program SEMAI
+</h3>
+
+<p>
+<strong>Selasa & Rabu · Waktu Pagi</strong>
+<br>
+Kumpulan A → Tahap 1
+<br>
+Kumpulan B → Tahap 2
+</p>
+
+</div>
+
+
+<div class="schedule-card">
+
+<div class="schedule-icon">
+📚
+</div>
+
+<h3>
+Kaunter PSS · Selasa
+</h3>
+
+<p>
+<strong>9.30 pagi</strong>
+<br>
+Peminjaman & pemulangan buku
+<br>
+Kumpulan A
+</p>
+
+</div>
+
+
+<div class="schedule-card">
+
+<div class="schedule-icon">
+📖
+</div>
+
+<h3>
+Kaunter PSS · Rabu
+</h3>
+
+<p>
+<strong>9.30 pagi</strong>
+<br>
+Peminjaman & pemulangan buku
+<br>
+Kumpulan B
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<main class="content">
+
+<div class="summary">
+
+<div>
+
+<div class="eyebrow">
+PENGAWAS PUSAT SUMBER
+</div>
+
+<h2>
+Senarai Bertugas
+</h2>
+
+<p>
+Nama ahli dikemas kini secara automatik daripada Google Sheet.
+</p>
+
+</div>
+
+<div class="total">
+
+<strong id="total">
+0
+</strong>
+
+<span>
+PENGAWAS AKTIF
+</span>
+
+</div>
+
+</div>
+
+
+<div class="groups" id="groups">
+
+<div class="loading">
+Memuatkan jadual...
+</div>
+
+</div>
+
+</main>
+
+
+
+<section class="refresh-box">
+
+<div style="font-size:26px">
+💡
+</div>
+
+<div class="refresh-text">
+
+<h3>
+Jadual sentiasa dikemas kini
+</h3>
+
+<p>
+Tukar nama, tahun, kumpulan atau jawatan melalui Google Sheet sahaja.
+</p>
+
+</div>
+
+<button class="refresh" onclick="loadData()">
+↻ Refresh
+</button>
+
+</section>
+
+
+
+<footer>
+
+VERSE31 · Pusat Sumber SK Blok 31 Tawau
+
+</footer>
+
+
+
+<script>
+
+const SHEET =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vRb-p12nmaHTC8_VG5TbWTgScWIWkhbkZmr7MDqPB548f5MsdaC9Z0QA_0u5iT70-mUS3znulZCjEtx/pub?output=csv";
+
+
+function parseCSV(text){
+
+const rows = [];
+
+let row = [];
+let value = "";
+let quotes = false;
+
+for(let i=0;i<text.length;i++){
+
+const char = text[i];
+
+if(char === '"'){
+
+if(quotes && text[i+1] === '"'){
+
+value += '"';
+i++;
+
+}else{
+
+quotes = !quotes;
+
+}
+
+}
+
+else if(char === "," && !quotes){
+
+row.push(value);
+value = "";
+
+}
+
+else if((char === "\n" || char === "\r") && !quotes){
+
+if(char === "\r" && text[i+1] === "\n"){
+i++;
+}
+
+row.push(value);
+
+if(row.some(cell => cell.trim() !== "")){
+rows.push(row);
+}
+
+row = [];
+value = "";
+
+}
+
+else{
+
+value += char;
+
+}
+
+}
+
+if(value || row.length){
+
+row.push(value);
+rows.push(row);
+
+}
+
+return rows;
+
+}
+
+
+function escapeHTML(value){
+
+return String(value || "")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+async function loadData(){
+
+const groups =
+document.getElementById("groups");
+
+groups.innerHTML =
+'<div class="loading">Memuatkan jadual...</div>';
+
+try{
+
+const response =
+await fetch(SHEET + "&t=" + Date.now());
+
+if(!response.ok){
+throw new Error("Google Sheet tidak dapat dibaca.");
+}
+
+const text =
+await response.text();
+
+const rows =
+parseCSV(text);
+
+const students =
+rows
+.slice(1)
+.map(row => ({
+
+nama:(row[0] || "").trim(),
+
+tahun:(row[1] || "").trim(),
+
+kumpulan:(row[2] || "").trim(),
+
+jawatan:(row[3] || "").trim(),
+
+status:(row[4] || "").trim()
+
+}))
+.filter(student =>
+student.nama &&
+student.kumpulan &&
+student.status.toLowerCase() !== "tidak aktif"
+);
+
+render(students);
+
+}
+
+catch(error){
+
+groups.innerHTML = `
+
+<div class="loading">
+
+⚠️ Jadual tidak dapat dimuatkan.
+
+<br><br>
+
+Tekan Refresh untuk cuba semula.
+
+</div>
+
+`;
+
+console.error(error);
+
+}
+
+}
+
+
+function render(students){
+
+document.getElementById("total").textContent =
+students.length;
+
+const container =
+document.getElementById("groups");
+
+container.innerHTML = "";
+
+["A","B"].forEach(groupName => {
+
+const members =
+students.filter(student =>
+student.kumpulan
+.toUpperCase()
+.replace("KUMPULAN","")
+.trim() === groupName
+);
+
+const section =
+document.createElement("section");
+
+section.className = "group";
+
+section.innerHTML = `
+
+<div class="group-head">
+
+<div class="group-letter">
+${groupName}
+</div>
+
+<div>
+
+<h3>
+Kumpulan ${groupName}
+</h3>
+
+<p>
+${groupName === "A"
+? "SEMAI Tahap 1 · Kaunter Selasa"
+: "SEMAI Tahap 2 · Kaunter Rabu"}
+</p>
+
+</div>
+
+</div>
+
+<div>
+
+${members.length
+?
+members.map((member,index) => `
+
+<div class="member">
+
+<div class="number">
+${index + 1}
+</div>
+
+<div class="member-info">
+
+<strong>
+${escapeHTML(member.nama)}
+</strong>
+
+<span>
+Tahun ${escapeHTML(member.tahun)}
+</span>
+
+</div>
+
+${member.jawatan
+?
+`<span class="role">
+${escapeHTML(member.jawatan)}
+</span>`
+:
+""
+}
+
+</div>
+
+`).join("")
+:
+'<div class="loading">Belum ada ahli kumpulan.</div>'
+}
+
+</div>
+
+`;
+
+container.appendChild(section);
+
+});
+
+}
+
+
+loadData();
+
+</script>
+
+</body>
+</html>
