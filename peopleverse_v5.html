@@ -672,7 +672,7 @@ status: (row[5] || "").trim()
 .filter(person =>
 person.nama &&
 person.bahagian &&
-person.status.toLowerCase() === "aktif"
+person.status.toLowerCase() !== "tidak aktif"
 );
 
 
