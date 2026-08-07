@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AINSVerse31</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f6f7ff;
+  color:#20284d;
+}
+
+header{
+  height:70px;
+  background:white;
+  border-bottom:1px solid #e3e6f3;
+  display:flex;
+  align-items:center;
+  padding:0 6%;
+  gap:18px;
+}
+
+.home{
+  text-decoration:none;
+  color:#17245a;
+  font-weight:bold;
+  font-size:12px;
+  padding:9px 12px;
+  border:1px solid #e0e3ef;
+  border-radius:10px;
+}
+
+.brand{
+  font-weight:bold;
+  color:#17245a;
+}
+
+.live{
+  margin-left:auto;
+  color:#168052;
+  background:#eaf8f1;
+  padding:7px 11px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.hero{
+  background:
+  radial-gradient(circle at 80% 30%,#7659cc55,transparent 28%),
+  linear-gradient(135deg,#10163d,#252e70 65%,#493d91);
+
+  color:white;
+  padding:65px 7%;
+}
+
+.hero-inner{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:50px;
+  align-items:center;
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:2px;
+  color:#a9a1f0;
+  font-weight:bold;
+}
+
+.hero h1{
+  font-size:46px;
+  line-height:1.05;
+  margin:12px 0 18px;
+}
+
+.hero h1 span{
+  color:#bab3ff;
+}
+
+.hero-text{
+  color:#d0d3eb;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:24px;
+}
+
+.tags span{
+  padding:8px 11px;
+  border-radius:30px;
+  border:1px solid #ffffff25;
+  background:#ffffff10;
+  font-size:10px;
+}
+
+.champion{
+  text-align:center;
+  border:1px solid #ffffff30;
+  background:#ffffff12;
+  border-radius:25px;
+  padding:28px;
+}
+
+.trophy{
+  font-size:55px;
+}
+
+.champion-label{
+  font-size:9px;
+  letter-spacing:1.5px;
+  color:#c1c0e7;
+}
+
+.champion h2{
+  font-size:19px;
+  line-height:1.4;
+}
+
+.score{
+  display:inline-block;
+  background:#11163d80;
+  padding:12px 28px;
+  border-radius:14px;
+}
+
+.score strong{
+  display:block;
+  font-size:30px;
+}
+
+.score small{
+  font-size:8px;
+  letter-spacing:1px;
+  color:#b7b9df;
+}
+
+.board{
+  max-width:1100px;
+  margin:auto;
+  padding:55px 25px;
+}
+
+.board-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:28px;
+}
+
+.board-header h2{
+  margin:5px 0;
+  color:#17245a;
+  font-size:30px;
+}
+
+.board-header p{
+  color:#737b9e;
+  font-size:12px;
+}
+
+.year-box{
+  background:white;
+  border:1px solid #e1e4f0;
+  padding:9px 12px;
+  border-radius:11px;
+}
+
+.year-box label{
+  font-size:9px;
+  color:#777f9f;
+  font-weight:bold;
+}
+
+.year-box select{
+  border:0;
+  outline:0;
+  font-weight:bold;
+  color:#17245a;
+  background:white;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.card{
+  position:relative;
+  background:white;
+  border:1px solid #e3e6f2;
+  border-radius:18px;
+  padding:18px;
+  min-height:205px;
+  box-shadow:0 8px 25px #39436c10;
+  display:flex;
+  flex-direction:column;
+}
+
+.card.latest{
+  border:2px solid #7663d6;
+  background:linear-gradient(145deg,#ffffff,#f5f2ff);
+}
+
+.month{
+  font-size:11px;
+  text-transform:uppercase;
+  font-weight:bold;
+  color:#66709a;
+}
+
+.icon{
+  font-size:27px;
+  margin:20px 0 12px;
+}
+
+.card h3{
+  margin:0;
+  font-size:13px;
+  line-height:1.4;
+  color:#17245a;
+}
+
+.record{
+  margin-top:auto;
+}
+
+.record strong{
+  font-size:24px;
+  color:#6c54cc;
+}
+
+.record span{
+  font-size:10px;
+  color:#777f9e;
+}
+
+.badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:#eeeaff;
+  color:#6551bd;
+  padding:5px 8px;
+  font-size:7px;
+  font-weight:bold;
+  border-radius:20px;
+}
+
+.info{
+  max-width:1050px;
+  margin:0 auto 45px;
+  background:#ecefff;
+  border:1px solid #dfe3f4;
+  border-radius:16px;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.info-text{
+  flex:1;
+}
+
+.info h3{
+  margin:0 0 5px;
+  font-size:13px;
+  color:#17245a;
+}
+
+.info p{
+  margin:0;
+  font-size:11px;
+  color:#727a9a;
+}
+
+.refresh{
+  border:1px solid #ccd1e8;
+  background:white;
+  color:#17245a;
+  border-radius:9px;
+  padding:9px 12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.loading{
+  grid-column:1/-1;
+  text-align:center;
+  padding:50px;
+  color:#777f9e;
+}
+
+footer{
+  text-align:center;
+  color:#9aa1ba;
+  font-size:9px;
+  padding:20px;
+}
+
+@media(max-width:800px){
+
+  .hero-inner{
+    grid-template-columns:1fr;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:520px){
+
+  header{
+    padding:0 14px;
+  }
+
+  .hero{
+    padding:40px 18px;
+  }
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .board{
+    padding:40px 14px;
+  }
+
+  .board-header{
+    align-items:start;
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .card{
+    min-height:165px;
+  }
+
+  .info{
+    margin:0 12px 35px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html" class="home">
+← HOME
+</a>
+
+<div class="brand">
+📖 AINSVerse31
+</div>
+
+<div class="live">
+● LIVE DATA
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div>
+
+<div class="eyebrow">
+AINS · ADVANCED INTEGRATED NILAM SYSTEM
+</div>
+
+<h1>
+Membaca. Merekod.<br>
+<span>Mencipta Juara.</span>
+</h1>
+
+<p class="hero-text">
+Raikan murid yang konsisten merekod bacaan dan jadikan setiap halaman
+satu langkah menuju kecemerlangan.
+</p>
+
+<div class="tags">
+
+<span>📚 Rekod Bacaan</span>
+
+<span>🏆 Juara Bulanan</span>
+
+<span>✨ Inspirasi NILAM</span>
+
+</div>
+
+</div>
+
+
+<div class="champion" id="champion">
+
+<div class="trophy">
+🏆
+</div>
+
+<div class="champion-label">
+JUARA TERKINI
+</div>
+
+<h2>
+Memuatkan...
+</h2>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="board">
+
+<div class="board-header">
+
+<div>
+
+<div class="eyebrow">
+WALL OF READERS
+</div>
+
+<h2>
+Juara AINS Bulanan
+</h2>
+
+<p>
+Rekod pencapaian pembaca cemerlang sepanjang tahun.
+</p>
+
+</div>
+
+
+<div class="year-box">
+
+<label>
+TAHUN
+</label>
+
+<select id="yearSelect"></select>
+
+</div>
+
+</div>
+
+
+<div class="grid" id="leaderboard">
+
+<div class="loading">
+Memuatkan leaderboard...
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="info">
+
+<div style="font-size:28px">
+💡
+</div>
+
+<div class="info-text">
+
+<h3>
+Leaderboard sentiasa dikemas kini
+</h3>
+
+<p>
+Data dipaparkan secara automatik daripada pangkalan data AINSVerse.
+Tiada Admin Mode diperlukan.
+</p>
+
+</div>
+
+<button class="refresh" onclick="loadData()">
+↻ Refresh
+</button>
+
+</section>
+
+
+<footer>
+
+VERSE31 · Pusat Sumber SK Blok 31 Tawau
+
+</footer>
+
+
+<script>
+
+const SHEET =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vSjeBpuwf3pEBprLD90l1YLfhYiOOz1pJD52RZEUwDdGlZ4ldoRrlBgP7NDrlfhcf49JCO74o33gps5/pub?output=csv";
+
+const MONTHS = [
+"Januari",
+"Februari",
+"Mac",
+"April",
+"Mei",
+"Jun",
+"Julai",
+"Ogos",
+"September",
+"Oktober",
+"November",
+"Disember"
+];
+
+let allData = [];
+
+
+function parseCSV(text){
+
+const rows = [];
+let row = [];
+let value = "";
+let quotes = false;
+
+for(let i=0;i<text.length;i++){
+
+const char = text[i];
+
+if(char === '"'){
+
+if(quotes && text[i+1] === '"'){
+value += '"';
+i++;
+}else{
+quotes = !quotes;
+}
+
+}
+else if(char === "," && !quotes){
+
+row.push(value);
+value = "";
+
+}
+else if((char === "\n" || char === "\r") && !quotes){
+
+if(char === "\r" && text[i+1] === "\n"){
+i++;
+}
+
+row.push(value);
+
+if(row.some(cell => cell.trim() !== "")){
+rows.push(row);
+}
+
+row = [];
+value = "";
+
+}
+else{
+
+value += char;
+
+}
+
+}
+
+if(value || row.length){
+
+row.push(value);
+rows.push(row);
+
+}
+
+return rows;
+
+}
+
+
+async function loadData(){
+
+const board = document.getElementById("leaderboard");
+
+board.innerHTML =
+'<div class="loading">Memuatkan leaderboard...</div>';
+
+try{
+
+const response =
+await fetch(SHEET + "&t=" + Date.now());
+
+if(!response.ok){
+throw new Error("Google Sheet tidak dapat dibaca.");
+}
+
+const text = await response.text();
+
+const rows = parseCSV(text);
+
+allData = rows
+.slice(1)
+.map(row => ({
+
+year: Number((row[0] || "").trim()),
+
+month: (row[1] || "").trim(),
+
+name: (row[2] || "").trim(),
+
+records: Number((row[3] || "0").trim())
+
+}))
+.filter(item =>
+item.year &&
+item.month &&
+item.name &&
+Number.isFinite(item.records)
+);
+
+setupYears();
+
+}
+catch(error){
+
+board.innerHTML =
+'<div class="loading">⚠️ Data leaderboard tidak dapat dimuatkan.<br><br>Tekan Refresh untuk cuba semula.</div>';
+
+console.error(error);
+
+}
+
+}
+
+
+function setupYears(){
+
+const select =
+document.getElementById("yearSelect");
+
+const currentSelection =
+Number(select.value);
+
+const years =
+[...new Set(allData.map(item => item.year))]
+.sort((a,b) => b-a);
+
+select.innerHTML = "";
+
+years.forEach(year => {
+
+const option =
+document.createElement("option");
+
+option.value = year;
+option.textContent = year;
+
+select.appendChild(option);
+
+});
+
+if(
+currentSelection &&
+years.includes(currentSelection)
+){
+
+select.value = currentSelection;
+
+}
+
+select.onchange = render;
+
+render();
+
+}
+
+
+function render(){
+
+const select =
+document.getElementById("yearSelect");
+
+const selectedYear =
+Number(select.value);
+
+const data =
+allData
+.filter(item => item.year === selectedYear)
+.sort(
+(a,b) =>
+MONTHS.indexOf(a.month) -
+MONTHS.indexOf(b.month)
+);
+
+renderChampion(data);
+
+renderCards(data);
+
+}
+
+
+function renderChampion(data){
+
+const champion =
+document.getElementById("champion");
+
+if(!data.length){
+
+champion.innerHTML = `
+<div class="trophy">🏆</div>
+<div class="champion-label">JUARA TERKINI</div>
+<h2>Belum ada rekod</h2>
+`;
+
+return;
+
+}
+
+const latest =
+data[data.length-1];
+
+champion.innerHTML = `
+
+<div class="trophy">
+🏆
+</div>
+
+<div class="champion-label">
+JUARA TERKINI · ${latest.month.toUpperCase()} ${latest.year}
+</div>
+
+<h2>
+${escapeHTML(latest.name)}
+</h2>
+
+<div class="score">
+
+<strong>
+${latest.records.toLocaleString("ms-MY")}
+</strong>
+
+<small>
+REKOD BACAAN
+</small>
+
+</div>
+
+`;
+
+}
+
+
+function renderCards(data){
+
+const board =
+document.getElementById("leaderboard");
+
+if(!data.length){
+
+board.innerHTML =
+'<div class="loading">Belum ada rekod untuk tahun ini.</div>';
+
+return;
+
+}
+
+board.innerHTML =
+data.map((item,index) => {
+
+const latest =
+index === data.length-1;
+
+return `
+
+<div class="card ${latest ? "latest" : ""}">
+
+${latest ? '<div class="badge">TERKINI</div>' : ""}
+
+<div class="month">
+${item.month}
+</div>
+
+<div class="icon">
+${latest ? "🏆" : "📚"}
+</div>
+
+<h3>
+${escapeHTML(item.name)}
+</h3>
+
+<div class="record">
+
+<strong>
+${item.records.toLocaleString("ms-MY")}
+</strong>
+
+<span>
+Rekod
+</span>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+function escapeHTML(value){
+
+return String(value)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+loadData();
+
+</script>
+
+</body>
+</html>
