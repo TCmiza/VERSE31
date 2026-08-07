@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PeopleVerse31</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f6f7ff;
+color:#20284d;
+}
+
+header{
+height:70px;
+background:white;
+border-bottom:1px solid #e3e6f2;
+display:flex;
+align-items:center;
+padding:0 6%;
+gap:18px;
+position:sticky;
+top:0;
+z-index:20;
+}
+
+.home{
+text-decoration:none;
+color:#17245a;
+font-weight:bold;
+font-size:12px;
+padding:9px 12px;
+border:1px solid #e0e3ef;
+border-radius:10px;
+}
+
+.brand{
+font-weight:bold;
+color:#17245a;
+}
+
+.live{
+margin-left:auto;
+background:#eaf8f1;
+color:#248159;
+padding:7px 10px;
+border-radius:30px;
+font-size:9px;
+font-weight:bold;
+}
+
+.hero{
+background:
+radial-gradient(circle at 80% 30%,#735bc750,transparent 28%),
+linear-gradient(135deg,#121943,#27306d 65%,#493c8e);
+color:white;
+padding:60px 7%;
+}
+
+.hero-inner{
+max-width:1050px;
+margin:auto;
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:2px;
+font-weight:bold;
+color:#aaa3ee;
+}
+
+.hero h1{
+font-size:45px;
+line-height:1.08;
+margin:12px 0;
+}
+
+.hero h1 span{
+color:#bbb4ff;
+}
+
+.hero p{
+max-width:620px;
+font-size:14px;
+line-height:1.6;
+color:#d0d3eb;
+}
+
+.stats{
+display:flex;
+gap:10px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.stat{
+border:1px solid #ffffff25;
+background:#ffffff10;
+border-radius:13px;
+padding:11px 16px;
+}
+
+.stat strong{
+font-size:20px;
+display:block;
+}
+
+.stat span{
+font-size:9px;
+color:#c8cae8;
+}
+
+.navigation{
+max-width:1050px;
+margin:30px auto 0;
+padding:0 20px;
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.navigation button{
+border:1px solid #dfe3f1;
+background:white;
+color:#5b648d;
+padding:9px 12px;
+border-radius:30px;
+font-size:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.navigation button.active{
+background:#17245a;
+color:white;
+border-color:#17245a;
+}
+
+.content{
+max-width:1050px;
+margin:auto;
+padding:35px 20px 60px;
+}
+
+.section{
+margin-bottom:45px;
+scroll-margin-top:100px;
+}
+
+.section-head{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:18px;
+}
+
+.section-icon{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:13px;
+background:#ebeefe;
+font-size:22px;
+}
+
+.section-head h2{
+margin:0;
+font-size:22px;
+color:#17245a;
+}
+
+.section-head p{
+margin:4px 0 0;
+font-size:10px;
+color:#777f9f;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+}
+
+.card{
+background:white;
+border:1px solid #e2e5f1;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 30px #43517b10;
+}
+
+.photo{
+height:220px;
+background:linear-gradient(145deg,#eef0ff,#e3e7f8);
+overflow:hidden;
+position:relative;
+}
+
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center 18%;
+display:block;
+}
+
+.placeholder{
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:50px;
+color:#727cc1;
+font-weight:bold;
+background:
+radial-gradient(circle at 50% 30%,#ffffff,transparent 30%),
+linear-gradient(145deg,#eef0ff,#dfe4f7);
+}
+
+.details{
+padding:16px;
+}
+
+.details h3{
+margin:0 0 8px;
+font-size:13px;
+line-height:1.4;
+color:#17245a;
+}
+
+.role{
+font-size:10px;
+color:#697297;
+line-height:1.4;
+min-height:28px;
+}
+
+.category{
+display:inline-block;
+margin-top:12px;
+background:#f0efff;
+color:#6756bb;
+border-radius:20px;
+padding:5px 8px;
+font-size:8px;
+font-weight:bold;
+}
+
+.loading{
+text-align:center;
+padding:60px 20px;
+color:#777f9f;
+}
+
+.refresh-box{
+max-width:1010px;
+margin:0 auto 50px;
+padding:18px 22px;
+background:#ecefff;
+border:1px solid #dde1f2;
+border-radius:16px;
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.refresh-box div:nth-child(2){
+flex:1;
+}
+
+.refresh-box h3{
+font-size:12px;
+margin:0 0 4px;
+color:#17245a;
+}
+
+.refresh-box p{
+font-size:10px;
+margin:0;
+color:#747c9d;
+}
+
+.refresh{
+border:1px solid #ccd2e8;
+background:white;
+color:#17245a;
+border-radius:9px;
+padding:9px 12px;
+font-size:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+font-size:9px;
+color:#9ba1bb;
+padding:15px 20px 30px;
+}
+
+@media(max-width:850px){
+
+.grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:650px){
+
+.hero{
+padding:40px 18px;
+}
+
+.hero h1{
+font-size:35px;
+}
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.photo{
+height:210px;
+}
+
+}
+
+@media(max-width:430px){
+
+header{
+padding:0 13px;
+gap:9px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.photo{
+height:330px;
+}
+
+.card{
+max-width:330px;
+width:100%;
+margin:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header>
+
+<a href="index.html" class="home">
+← HOME
+</a>
+
+<div class="brand">
+👥 PeopleVerse31
+</div>
+
+<div class="live">
+● LIVE DATA
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div class="eyebrow">
+VERSE31 · OUR PEOPLE
+</div>
+
+<h1>
+Warga PSS.<br>
+<span>Satu Pasukan.</span>
+</h1>
+
+<p>
+Kenali warga yang bersama-sama menggerakkan Pusat Sumber
+SK Blok 31 Tawau.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<strong id="totalPeople">0</strong>
+<span>WARGA AKTIF</span>
+</div>
+
+<div class="stat">
+<strong id="totalGroups">0</strong>
+<span>BAHAGIAN</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="navigation" id="navigation"></div>
+
+
+<main class="content" id="content">
+
+<div class="loading">
+Memuatkan PeopleVerse...
+</div>
+
+</main>
+
+
+<section class="refresh-box">
+
+<div style="font-size:26px">
+💡
+</div>
+
+<div>
+
+<h3>
+PeopleVerse sentiasa dikemas kini
+</h3>
+
+<p>
+Maklumat dipaparkan secara automatik daripada pangkalan data PeopleVerse.
+</p>
+
+</div>
+
+<button class="refresh" onclick="loadPeople()">
+↻ Refresh
+</button>
+
+</section>
+
+
+<footer>
+
+VERSE31 · Pusat Sumber SK Blok 31 Tawau
+
+</footer>
+
+
+<script>
+
+const SHEET =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vRBJhlUb6GLV9OIPV5dv1crTtJdksJbzRzWo8jCLO8BQy3zYeoPkO_TIUNUkHxIMeDq2bwRTIGZRPAl/pub?output=csv";
+
+
+const GROUP_ORDER = [
+"Guru Perpustakaan & Media",
+"AJK Induk PSS",
+"AJK Kerja PSS",
+"Cyber Squad"
+];
+
+
+function parseCSV(text){
+
+const rows = [];
+
+let row = [];
+let value = "";
+let quotes = false;
+
+for(let i=0;i<text.length;i++){
+
+const char = text[i];
+
+if(char === '"'){
+
+if(quotes && text[i+1] === '"'){
+
+value += '"';
+i++;
+
+}else{
+
+quotes = !quotes;
+
+}
+
+}
+
+else if(char === "," && !quotes){
+
+row.push(value);
+value = "";
+
+}
+
+else if((char === "\n" || char === "\r") && !quotes){
+
+if(char === "\r" && text[i+1] === "\n"){
+i++;
+}
+
+row.push(value);
+
+if(row.some(cell => cell.trim() !== "")){
+rows.push(row);
+}
+
+row = [];
+value = "";
+
+}
+
+else{
+
+value += char;
+
+}
+
+}
+
+if(value || row.length){
+
+row.push(value);
+rows.push(row);
+
+}
+
+return rows;
+
+}
+
+
+function getDriveImage(url){
+
+if(!url){
+return "";
+}
+
+let id = "";
+
+const match1 =
+url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+
+const match2 =
+url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+if(match1){
+id = match1[1];
+}
+
+if(!id && match2){
+id = match2[1];
+}
+
+if(id){
+
+return "https://drive.google.com/thumbnail?id=" +
+id +
+"&sz=w1000";
+
+}
+
+return url;
+
+}
+
+
+function initials(name){
+
+return name
+.split(" ")
+.filter(Boolean)
+.slice(0,2)
+.map(word => word.charAt(0))
+.join("")
+.toUpperCase();
+
+}
+
+
+function iconFor(group){
+
+const text = group.toLowerCase();
+
+if(text.includes("perpustakaan")){
+return "📚";
+}
+
+if(text.includes("induk")){
+return "⭐";
+}
+
+if(text.includes("cyber")){
+return "💻";
+}
+
+return "👥";
+
+}
+
+
+function escapeHTML(value){
+
+return String(value || "")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+async function loadPeople(){
+
+const content =
+document.getElementById("content");
+
+content.innerHTML =
+'<div class="loading">Memuatkan PeopleVerse...</div>';
+
+try{
+
+const response =
+await fetch(SHEET + "&t=" + Date.now());
+
+if(!response.ok){
+throw new Error("Google Sheet tidak dapat dibaca.");
+}
+
+const text =
+await response.text();
+
+const rows =
+parseCSV(text);
+
+const people =
+rows
+.slice(1)
+.map(row => ({
+
+nama: (row[0] || "").trim(),
+
+jawatan: (row[1] || "").trim(),
+
+bahagian: (row[2] || "").trim(),
+
+gambar: (row[3] || "").trim(),
+
+status: (row[5] || "").trim()
+
+}))
+.filter(person =>
+person.nama &&
+person.bahagian &&
+person.status.toLowerCase() === "aktif"
+);
+
+
+renderPeople(people);
+
+}
+
+catch(error){
+
+content.innerHTML = `
+
+<div class="loading">
+
+⚠️ PeopleVerse tidak dapat dimuatkan.
+
+<br><br>
+
+Tekan Refresh untuk cuba semula.
+
+</div>
+
+`;
+
+console.error(error);
+
+}
+
+}
+
+
+function renderPeople(people){
+
+const groups =
+[...new Set(people.map(person => person.bahagian))];
+
+groups.sort((a,b) => {
+
+const aIndex = GROUP_ORDER.indexOf(a);
+const bIndex = GROUP_ORDER.indexOf(b);
+
+const aa = aIndex === -1 ? 999 : aIndex;
+const bb = bIndex === -1 ? 999 : bIndex;
+
+return aa - bb;
+
+});
+
+
+document.getElementById("totalPeople").textContent =
+people.length;
+
+document.getElementById("totalGroups").textContent =
+groups.length;
+
+
+const nav =
+document.getElementById("navigation");
+
+nav.innerHTML = "";
+
+
+const content =
+document.getElementById("content");
+
+content.innerHTML = "";
+
+
+groups.forEach((group,index) => {
+
+const groupPeople =
+people.filter(person => person.bahagian === group);
+
+const button =
+document.createElement("button");
+
+button.textContent =
+iconFor(group) + " " + group;
+
+if(index === 0){
+button.classList.add("active");
+}
+
+button.onclick = () => {
+
+document
+.getElementById("group-" + index)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+document
+.querySelectorAll(".navigation button")
+.forEach(btn => btn.classList.remove("active"));
+
+button.classList.add("active");
+
+};
+
+nav.appendChild(button);
+
+
+const section =
+document.createElement("section");
+
+section.className = "section";
+section.id = "group-" + index;
+
+
+section.innerHTML = `
+
+<div class="section-head">
+
+<div class="section-icon">
+${iconFor(group)}
+</div>
+
+<div>
+
+<h2>
+${escapeHTML(group)}
+</h2>
+
+<p>
+${groupPeople.length} orang
+</p>
+
+</div>
+
+</div>
+
+<div class="grid">
+
+${groupPeople.map(person => {
+
+const image =
+getDriveImage(person.gambar);
+
+return `
+
+<article class="card">
+
+<div class="photo">
+
+${image
+?
+`<img
+src="${escapeHTML(image)}"
+alt="${escapeHTML(person.nama)}"
+loading="lazy"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+">`
+:
+""
+}
+
+<div
+class="placeholder"
+style="${image ? "display:none" : "display:flex"}"
+>
+${escapeHTML(initials(person.nama))}
+</div>
+
+</div>
+
+
+<div class="details">
+
+<h3>
+${escapeHTML(person.nama)}
+</h3>
+
+<div class="role">
+${escapeHTML(person.jawatan || "Warga PSS")}
+</div>
+
+<span class="category">
+${escapeHTML(group)}
+</span>
+
+</div>
+
+</article>
+
+`;
+
+}).join("")}
+
+</div>
+
+`;
+
+content.appendChild(section);
+
+});
+
+}
+
+
+loadPeople();
+
+</script>
+
+</body>
+</html>
