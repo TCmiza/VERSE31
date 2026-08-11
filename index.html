@@ -31,12 +31,12 @@
     .spotlight:after{content:"";position:absolute;width:250px;height:250px;border-radius:50%;right:-90px;top:-120px;background:rgba(250,204,21,.14);filter:blur(10px)}
     .trophy{width:150px;aspect-ratio:1;display:grid;place-items:center;border-radius:24px;background:linear-gradient(145deg,rgba(255,212,90,.22),rgba(155,108,255,.13));font-size:76px;border:1px solid rgba(255,212,90,.3)}
     .spotlight-label{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.spotlight h3{margin:8px 0 6px;font:700 clamp(24px,5vw,38px)/1.15 Poppins}.spotlight-meta{color:var(--muted);line-height:1.7}.record{display:inline-flex;margin-top:15px;padding:8px 12px;border-radius:999px;background:rgba(37,217,255,.1);color:#bcefff;font-weight:700;font-size:14px}
-    .universe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.universe-card,.quick-card{position:relative;padding:25px;border-radius:23px;transition:.22s ease}.universe-card:hover,.quick-card:hover{transform:translateY(-4px);border-color:rgba(37,217,255,.35)}
+    .universe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}.universe-card,.quick-card{position:relative;padding:25px;border-radius:23px;transition:.22s ease}.universe-card:hover,.quick-card:hover{transform:translateY(-4px);border-color:rgba(37,217,255,.35)}
     .icon{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:rgba(255,255,255,.09);font-size:27px}.universe-card h3,.quick-card h3{margin:18px 0 7px;font:700 20px Poppins}.universe-card p,.quick-card p{color:var(--muted);font-size:14px;line-height:1.55}.card-action{display:inline-block;margin-top:20px;color:var(--cyan);font-weight:700;font-size:14px}
     .announcements{display:grid;gap:12px;max-width:900px;margin:auto}.announcement{display:grid;grid-template-columns:105px 1fr;gap:18px;padding:20px 22px;border-radius:18px}.announcement time{color:var(--cyan);font-weight:800;font-size:13px}.announcement h3{font:700 18px Poppins;margin-bottom:5px}.announcement p{color:var(--muted);line-height:1.55;font-size:14px}
     .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.quick-card{min-height:205px}.quick-card .card-action{position:absolute;left:25px;bottom:22px}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:18px}
     footer{margin-top:55px;padding:46px 16px;text-align:center;border-top:1px solid var(--line);background:rgba(255,255,255,.03)}footer .brand{font-size:33px}footer p{margin-top:9px;color:var(--muted);line-height:1.7;font-size:14px}
-    @media(max-width:820px){.universe-grid,.quick-grid{grid-template-columns:repeat(2,1fr)}.spotlight{grid-template-columns:130px 1fr}.trophy{width:120px;font-size:60px}}
+    @media(max-width:920px){.universe-grid,.quick-grid{grid-template-columns:repeat(2,1fr)}.spotlight{grid-template-columns:130px 1fr}.trophy{width:120px;font-size:60px}}
     @media(max-width:560px){.shell{width:min(100% - 24px,1120px)}.nav-link{display:none}.hero{min-height:64vh;padding:45px 0 72px}.hero h1{letter-spacing:.025em}.spotlight{grid-template-columns:1fr;text-align:center;padding:24px}.trophy{margin:auto}.universe-grid,.quick-grid{grid-template-columns:1fr}.announcement{grid-template-columns:1fr;gap:6px}section{padding:52px 0}}
   </style>
 </head>
@@ -47,10 +47,12 @@
 
     <section id="spotlight"><div class="shell"><div class="section-head"><span class="kicker">Pencapaian terkini</span><h2>This Month’s Spotlight</h2><p>Meraikan pembaca aktif SK Blok 31.</p></div><article class="spotlight glass" aria-live="polite"><div class="trophy" aria-hidden="true">🏆</div><div><div class="spotlight-label" id="spotlight-period">Julai 2026</div><h3 id="spotlight-name">Aina Dellysha Saffieya binti Sugiat</h3><p class="spotlight-meta">Pembaca Terbaik Bulanan AINS</p><span class="record" id="spotlight-record">905 rekod bacaan</span></div></article></div></section>
 
-    <section id="explore"><div class="shell"><div class="section-head"><span class="kicker">Teroka ekosistem</span><h2>Explore Universe</h2><p>Tiga ruang utama yang membentuk identiti VERSE31.</p></div><div class="universe-grid">
-      <a class="universe-card glass" href="libraryverse_v6.html"><div class="icon">📚</div><h3>LibraryVerse31</h3><p>Koleksi bacaan digital Pusat Sumber.</p><span class="card-action">Teroka buku →</span></a>
-      <a class="universe-card glass" href="peopleverse_v5.html"><div class="icon">👥</div><h3>PeopleVerse</h3><p>Kenali warga dan pasukan di sebalik Pusat Sumber.</p><span class="card-action">Kenali warga →</span></a>
-      <a class="universe-card glass" href="nitroverse_v3.html"><div class="icon">🎁</div><h3>NiTROVerse</h3><p>Galeri penerima ganjaran NiTRO mengikut bulan dan tahun.</p><span class="card-action">Lihat galeri →</span></a>
+    <section id="explore"><div class="shell"><div class="section-head"><span class="kicker">Teroka ekosistem</span><h2>Explore Universe</h2><p>Lima ruang utama yang membentuk identiti VERSE31.</p></div><div class="universe-grid">
+      <a class="universe-card glass" href="libraryverse_v7.html"><div class="icon">📚</div><h3>LibraryVerse31</h3><p>Koleksi bacaan digital Pusat Sumber yang dikemas kini secara langsung.</p><span class="card-action">Teroka buku →</span></a>
+      <a class="universe-card glass" href="ainsversev5.html"><div class="icon">📖</div><h3>AINSVerse</h3><p>Leaderboard pembaca terbaik AINS yang dikemas kini secara langsung.</p><span class="card-action">Lihat pencapaian →</span></a>
+      <a class="universe-card glass" href="peopleversev5.html"><div class="icon">👥</div><h3>PeopleVerse</h3><p>Kenali warga dan pasukan di sebalik Pusat Sumber.</p><span class="card-action">Kenali warga →</span></a>
+      <a class="universe-card glass" href="nitroversev3.html"><div class="icon">🎁</div><h3>NiTROVerse</h3><p>Galeri penebusan ganjaran NILAM yang dikemas kini secara langsung.</p><span class="card-action">Lihat galeri →</span></a>
+      <a class="universe-card glass" href="galleryverse_v1.html"><div class="icon">📸</div><h3>GalleryVerse</h3><p>Galeri aktiviti Pusat Sumber yang dikemas kini terus daripada Google Drive.</p><span class="card-action">Teroka aktiviti →</span></a>
     </div></div></section>
 
     <section id="announcements"><div class="shell"><div class="section-head"><span class="kicker">Maklumat semasa</span><h2>Pengumuman PSS</h2><p>Maksimum tiga pengumuman aktif terkini.</p></div><div class="announcements" id="announcement-list"><article class="announcement glass"><time>11/08/2026</time><div><h3>Selamat Datang ke VERSE31</h3><p>Terokai koleksi digital, semak pengumuman dan akses sistem Pusat Sumber SK Blok 31 melalui satu portal.</p></div></article></div></div></section>
@@ -65,7 +67,7 @@
     const fallbackLinks=[
       {nama:'AINS NILAM',penerangan:'Rekod bacaan murid secara digital',ikon:'📖',pautan:'https://ains.moe.gov.my/login?returnUrl=/',status:'AKTIF',susunan:1},
       {nama:'MyPrepUs',penerangan:'Pengurusan dan persediaan aktiviti PSS',ikon:'🧠',pautan:'https://www.myprepus.com/login.php',status:'AKTIF',susunan:2},
-      {nama:'Jadual PdP Digital',penerangan:'Semak jadual pembelajaran digital',ikon:'📅',pautan:'https://drive.google.com/drive/folders/1XROyOv5baRRcKh5Pb1dhwkHFtN0lolQr?usp=sharing',status:'AKTIF',susunan:3},
+      {nama:'Jadual PdP Digital',penerangan:'Semak jadual pembelajaran digital',ikon:'📅',pautan:'jadual_pdp_v2.html',status:'AKTIF',susunan:3},
       {nama:'Jadual Pengawas PSS',penerangan:'Semak jadual bertugas pengawas PSS',ikon:'⭐',pautan:'jadual_pengawas_v2.html',status:'AKTIF',susunan:4},
       {nama:'Pinjaman Peranti PSS',penerangan:'Rekod pinjaman dan pemulangan peranti',ikon:'💻',pautan:'https://script.google.com/macros/s/AKfycbyVjDG1iANFyQo3m1w4q3vYy85XY0LLVrUbyalBXQkyr7-d3mA-CeyiTUg_VzEGkih27g/exec',status:'AKTIF',susunan:5},
       {nama:'Karnival Digital',penerangan:'Sertai aktiviti dan pertandingan digital',ikon:'🇲🇾',pautan:'https://iddelimaskblok31.my.canva.site/website-rasmi-karnival-digital-bulan-kebangsaan-2026-sk-blok-31-tawau',status:'AKTIF',susunan:7}
@@ -75,6 +77,7 @@
     async function loadSheet(base,gid){const url=gid===undefined?`${base}?output=csv`:`${base}?output=csv&gid=${gid}`;const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error('Data tidak dapat dimuatkan');return objects(parseCSV(await res.text()))}
     function titleCase(name){return name.toLocaleLowerCase('ms-MY').replace(/(^|[\s-])\p{L}/gu,m=>m.toLocaleUpperCase('ms-MY'))}
     const linkOverrides={
+      'jadual pdp digital':'jadual_pdp_v2.html',
       'jadual pengawas pss':'jadual_pengawas_v2.html',
       'jadual bertugas pengawas pss':'jadual_pengawas_v2.html'
     };
