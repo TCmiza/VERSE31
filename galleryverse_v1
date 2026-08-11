@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11183f">
+  <title>GalleryVerse | Galeri Aktiviti</title>
+  <style>
+    :root{--bg:#0b102d;--cyan:#25d9ff;--violet:#9b6cff;--pink:#ff5fc8;--text:#cfd5ee;--glass:rgba(255,255,255,.08);--border:rgba(255,255,255,.15)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:#fff;background:radial-gradient(circle at 12% 0,#164e63,transparent 34rem),radial-gradient(circle at 90% 100%,#4c1d95,transparent 38rem),var(--bg)}
+    body:before{content:"";position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:50px 50px}
+    a{color:inherit}.shell{width:min(1100px,calc(100% - 28px));margin:auto}.glass{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(15px)}
+    nav{margin-top:22px;padding:17px 23px;display:flex;align-items:center;justify-content:space-between;border-radius:24px}.logo{font-size:27px;font-weight:800;letter-spacing:1px}.logo span{color:var(--cyan)}.home{padding:10px 17px;border-radius:999px;border:1px solid var(--border);text-decoration:none;font-size:13px}
+    .hero{text-align:center;padding:68px 20px 44px}.camera{font-size:78px;animation:float 4s infinite ease-in-out}.eyebrow{display:inline-block;margin-top:15px;color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.16em}.hero h1{margin:8px 0 10px;font-size:clamp(46px,9vw,88px);line-height:1;letter-spacing:4px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}.hero h2{margin:0;font-size:clamp(18px,4vw,29px)}.hero p{max-width:650px;margin:15px auto 0;color:var(--text);line-height:1.65}
+    .content{padding:12px 0 70px}.info{display:flex;align-items:center;gap:13px;margin-bottom:17px;padding:16px 18px;border-radius:18px}.info-icon{font-size:25px}.info b{display:block;font-size:13px;margin-bottom:4px}.info p{margin:0;color:var(--text);font-size:11px;line-height:1.5}
+    .gallery{padding:11px;border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.28)}.gallery iframe{display:block;width:100%;height:760px;border:0;border-radius:15px;background:#fff}.fallback{text-align:center;margin:15px 0 3px;color:var(--text);font-size:11px}.fallback a{color:var(--cyan);font-weight:700}
+    footer{text-align:center;color:#94a3b8;font-size:11px;padding:0 20px 34px}@keyframes float{50%{transform:translateY(-13px)}}
+    @media(max-width:600px){nav{margin-top:14px;padding:14px 15px}.logo{font-size:21px}.home{padding:8px 12px;font-size:12px}.hero{padding:48px 12px 34px}.camera{font-size:63px}.hero h1{letter-spacing:2px}.content{padding-bottom:45px}.gallery{padding:6px;border-radius:17px}.gallery iframe{height:650px;border-radius:12px}}
+  </style>
+</head>
+<body>
+  <nav class="shell glass"><div class="logo">VERSE<span>31</span></div><a href="index.html" class="home">← HOMEVERSE</a></nav>
+  <header class="hero shell"><div class="camera" aria-hidden="true">📸</div><span class="eyebrow">PUSAT SUMBER SK BLOK 31</span><h1>GALLERYVERSE</h1><h2>Galeri Aktiviti</h2><p>Merakam detik, program dan aktiviti Pusat Sumber SK Blok 31 Tawau dalam satu galeri digital.</p></header>
+  <main class="content shell">
+    <div class="info glass"><div class="info-icon" aria-hidden="true">✨</div><div><b>Galeri dikemas kini secara langsung</b><p>Gambar baharu akan muncul secara automatik apabila dimasukkan ke folder Galeri Aktiviti.</p></div></div>
+    <section class="gallery glass" aria-label="Galeri gambar aktiviti Pusat Sumber">
+      <iframe src="https://drive.google.com/embeddedfolderview?id=17GREElyie5U8QgNAW_Albt5H3qquSnl1#grid" title="GalleryVerse" loading="lazy"></iframe>
+      <p class="fallback">Jika galeri tidak muncul, <a href="https://drive.google.com/drive/folders/17GREElyie5U8QgNAW_Albt5H3qquSnl1" target="_blank" rel="noopener">buka Galeri Aktiviti</a>.</p>
+    </section>
+  </main>
+  <footer>GalleryVerse · VERSE31 · Pusat Sumber SK Blok 31 Tawau</footer>
+</body>
+</html>
