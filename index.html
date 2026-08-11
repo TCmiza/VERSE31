@@ -66,7 +66,7 @@
       {nama:'AINS NILAM',penerangan:'Rekod bacaan murid secara digital',ikon:'📖',pautan:'https://ains.moe.gov.my/login?returnUrl=/',status:'AKTIF',susunan:1},
       {nama:'MyPrepUs',penerangan:'Pengurusan dan persediaan aktiviti PSS',ikon:'🧠',pautan:'https://www.myprepus.com/login.php',status:'AKTIF',susunan:2},
       {nama:'Jadual PdP Digital',penerangan:'Semak jadual pembelajaran digital',ikon:'📅',pautan:'https://drive.google.com/drive/folders/1XROyOv5baRRcKh5Pb1dhwkHFtN0lolQr?usp=sharing',status:'AKTIF',susunan:3},
-      {nama:'Jadual Pengawas PSS',penerangan:'Semak jadual bertugas pengawas PSS',ikon:'⭐',pautan:'https://jadual-pengawas-pss.g-04267410.chatgpt.site',status:'AKTIF',susunan:4},
+      {nama:'Jadual Pengawas PSS',penerangan:'Semak jadual bertugas pengawas PSS',ikon:'⭐',pautan:'jadual_pengawas_v2.html',status:'AKTIF',susunan:4},
       {nama:'Pinjaman Peranti PSS',penerangan:'Rekod pinjaman dan pemulangan peranti',ikon:'💻',pautan:'https://script.google.com/macros/s/AKfycbyVjDG1iANFyQo3m1w4q3vYy85XY0LLVrUbyalBXQkyr7-d3mA-CeyiTUg_VzEGkih27g/exec',status:'AKTIF',susunan:5},
       {nama:'Karnival Digital',penerangan:'Sertai aktiviti dan pertandingan digital',ikon:'🇲🇾',pautan:'https://iddelimaskblok31.my.canva.site/website-rasmi-karnival-digital-bulan-kebangsaan-2026-sk-blok-31-tawau',status:'AKTIF',susunan:7}
     ];
@@ -75,8 +75,8 @@
     async function loadSheet(base,gid){const url=gid===undefined?`${base}?output=csv`:`${base}?output=csv&gid=${gid}`;const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error('Data tidak dapat dimuatkan');return objects(parseCSV(await res.text()))}
     function titleCase(name){return name.toLocaleLowerCase('ms-MY').replace(/(^|[\s-])\p{L}/gu,m=>m.toLocaleUpperCase('ms-MY'))}
     const linkOverrides={
-      'jadual pengawas pss':'https://jadual-pengawas-pss.g-04267410.chatgpt.site',
-      'jadual bertugas pengawas pss':'https://jadual-pengawas-pss.g-04267410.chatgpt.site'
+      'jadual pengawas pss':'jadual_pengawas_v2.html',
+      'jadual bertugas pengawas pss':'jadual_pengawas_v2.html'
     };
     function renderLinks(items){const grid=document.querySelector('#quick-grid');const active=items.filter(x=>(x.status||'').toUpperCase()==='AKTIF'&&x.pautan).sort((a,b)=>(+a.susunan||99)-(+b.susunan||99));grid.innerHTML=active.length?active.map(x=>{const pautan=linkOverrides[(x.nama||'').trim().toLowerCase()]||x.pautan;return `<a class="quick-card glass" href="${escapeAttr(pautan)}" target="_blank" rel="noopener"><div class="icon">${escapeHTML(x.ikon||'🔗')}</div><h3>${escapeHTML(x.nama)}</h3><p>${escapeHTML(x.penerangan)}</p><span class="card-action">Buka →</span></a>`}).join(''):'<div class="empty">Tiada pautan aktif buat masa ini.</div>'}
     function renderAnnouncements(items){const active=items.filter(x=>(x.status||'').toUpperCase()==='AKTIF').sort((a,b)=>(+a.susunan||99)-(+b.susunan||99)).slice(0,3);if(!active.length){document.querySelector('#announcements').hidden=true;return}document.querySelector('#announcement-list').innerHTML=active.map(x=>`<article class="announcement glass"><time>${escapeHTML(x.tarikh)}</time><div><h3>${escapeHTML(x.tajuk)}</h3><p>${escapeHTML(x.pengumuman)}</p></div></article>`).join('')}
