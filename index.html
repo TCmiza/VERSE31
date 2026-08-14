@@ -73,6 +73,7 @@
       {nama:'Jadual PdP Digital',penerangan:'Semak jadual pembelajaran digital',ikon:'📅',pautan:'jadual_pdp_v2.html',status:'AKTIF',susunan:3},
       {nama:'Jadual Pengawas PSS',penerangan:'Semak jadual bertugas pengawas PSS',ikon:'⭐',pautan:'jadual_pengawas_v2.html',status:'AKTIF',susunan:4},
       {nama:'Pinjaman Peranti PSS',penerangan:'Rekod pinjaman dan pemulangan peranti',ikon:'💻',pautan:'https://script.google.com/macros/s/AKfycbyVjDG1iANFyQo3m1w4q3vYy85XY0LLVrUbyalBXQkyr7-d3mA-CeyiTUg_VzEGkih27g/exec',status:'AKTIF',susunan:5},
+      {nama:'BookVerse',penerangan:'Sistem pengurusan dan pemprosesan buku PSS',ikon:'🔐',pautan:'BOOKVERSE',status:'AKTIF',susunan:6},
       {nama:'Karnival Digital',penerangan:'Sertai aktiviti dan pertandingan digital',ikon:'🇲🇾',pautan:'https://iddelimaskblok31.my.canva.site/website-rasmi-karnival-digital-bulan-kebangsaan-2026-sk-blok-31-tawau',status:'AKTIF',susunan:7}
     ];
     function parseCSV(text){const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];if(c==='"'&&quoted&&n==='"'){cell+='"';i++;}else if(c==='"'){quoted=!quoted;}else if(c===','&&!quoted){row.push(cell.trim());cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&n==='\n')i++;row.push(cell.trim());if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=c;}if(cell||row.length){row.push(cell.trim());rows.push(row);}return rows}
@@ -84,7 +85,16 @@
       'jadual pengawas pss':'jadual_pengawas_v2.html',
       'jadual bertugas pengawas pss':'jadual_pengawas_v2.html'
     };
-    function renderLinks(items){const grid=document.querySelector('#quick-grid');const active=items.filter(x=>(x.status||'').toUpperCase()==='AKTIF'&&x.pautan).sort((a,b)=>(+a.susunan||99)-(+b.susunan||99));grid.innerHTML=active.length?active.map(x=>{const pautan=linkOverrides[(x.nama||'').trim().toLowerCase()]||x.pautan;return `<a class="quick-card glass" href="${escapeAttr(pautan)}" target="_blank" rel="noopener"><div class="icon">${escapeHTML(x.ikon||'🔗')}</div><h3>${escapeHTML(x.nama)}</h3><p>${escapeHTML(x.penerangan)}</p><span class="card-action">Buka →</span></a>`}).join(''):'<div class="empty">Tiada pautan aktif buat masa ini.</div>'}
+    function openBookVerse(){
+      const password=prompt('🔐 BOOKVERSE\n\nMasukkan password:');
+      if(password===null)return;
+      if(password==='3008'){
+        window.open('https://script.google.com/a/macros/moe-dl.edu.my/s/AKfycbwYsjlR20w-M42lBp8JiZEyxP4mt1AIAqIncJCo4Djt48MKdvkjKb1xfcEtnSeg1rlDKw/exec','_blank','noopener');
+      }else{
+        alert('❌ Password salah');
+      }
+    }
+    function renderLinks(items){const grid=document.querySelector('#quick-grid');const active=items.filter(x=>(x.status||'').toUpperCase()==='AKTIF'&&x.pautan).sort((a,b)=>(+a.susunan||99)-(+b.susunan||99));grid.innerHTML=active.length?active.map(x=>{const pautan=linkOverrides[(x.nama||'').trim().toLowerCase()]||x.pautan;if(pautan==='BOOKVERSE')return `<a class="quick-card glass" href="#" onclick="openBookVerse();return false;"><div class="icon">${escapeHTML(x.ikon||'🔐')}</div><h3>${escapeHTML(x.nama)}</h3><p>${escapeHTML(x.penerangan)}</p><span class="card-action">Buka →</span></a>`;return `<a class="quick-card glass" href="${escapeAttr(pautan)}" target="_blank" rel="noopener"><div class="icon">${escapeHTML(x.ikon||'🔗')}</div><h3>${escapeHTML(x.nama)}</h3><p>${escapeHTML(x.penerangan)}</p><span class="card-action">Buka →</span></a>`}).join(''):'<div class="empty">Tiada pautan aktif buat masa ini.</div>'}
     function renderAnnouncements(items){const active=items.filter(x=>(x.status||'').toUpperCase()==='AKTIF').sort((a,b)=>(+a.susunan||99)-(+b.susunan||99)).slice(0,3);if(!active.length){document.querySelector('#announcements').hidden=true;return}document.querySelector('#announcement-list').innerHTML=active.map(x=>`<article class="announcement glass"><time>${escapeHTML(x.tarikh)}</time><div><h3>${escapeHTML(x.tajuk)}</h3><p>${escapeHTML(x.pengumuman)}</p></div></article>`).join('')}
     function renderSpotlight(items){const months={januari:1,februari:2,mac:3,april:4,mei:5,jun:6,julai:7,ogos:8,september:9,oktober:10,november:11,disember:12};const valid=items.filter(x=>x.tahun&&x.bulan&&x['nama murid']).sort((a,b)=>(+b.tahun*100+(months[b.bulan.toLowerCase()]||0))-(+a.tahun*100+(months[a.bulan.toLowerCase()]||0)));if(!valid.length)return;const x=valid[0];document.querySelector('#spotlight-period').textContent=`${x.bulan} ${x.tahun}`;document.querySelector('#spotlight-name').textContent=titleCase(x['nama murid']);document.querySelector('#spotlight-record').textContent=`${x['jumlah rekod']} rekod bacaan`}
     function escapeHTML(v=''){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function escapeAttr(v=''){return escapeHTML(v)}
